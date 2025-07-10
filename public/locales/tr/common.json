@@ -1,0 +1,10 @@
+{
+  "greeting": "Merhaba Dünya",
+  "errorMessage": {
+    "unauthorized": "Geçersiz veya süresi dolmuş token",
+    "forbidden": "Yetersiz izinler",
+    "notFound": "Talep edilen kaynak bulunamadı",
+    "serverError": "Beklenmeyen bir hata oluştu",
+    "unknownError": "Bilinmeyen bir hata oluştu"
+  }
+}

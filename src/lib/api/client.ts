@@ -1,4 +1,5 @@
 import axios from 'axios';
+import i18n from '../../i18n';
 
 // Create axios instance with base configuration
 const apiClient = axios.create({
@@ -29,10 +30,25 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      // Handle unauthorized access
-      localStorage.removeItem('accessToken');
-      window.location.href = '/login';
+    const { status } = error.response || {};
+
+    switch (status) {
+      case 401:
+        localStorage.removeItem('accessToken');
+        window.location.href = '/login';
+        break;
+      case 403:
+        alert(i18n.t('errorMessage.forbidden'));
+        break;
+      case 404:
+        alert(i18n.t('errorMessage.notFound'));
+        break;
+      case 500:
+        alert(i18n.t('errorMessage.serverError'));
+        break;
+      default:
+        alert(i18n.t('errorMessage.unknownError'));
+        break;
     }
     return Promise.reject(error);
   }

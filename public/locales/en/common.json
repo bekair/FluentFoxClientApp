@@ -1,0 +1,10 @@
+{
+  "greeting": "Hello World",
+  "errorMessage": {
+    "unauthorized": "Invalid or expired token",
+    "forbidden": "Insufficient permissions",
+    "notFound": "Requested resource not found",
+    "serverError": "Unexpected error occurred",
+    "unknownError": "An unknown error occurred"
+  }
+}
