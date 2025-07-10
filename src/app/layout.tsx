@@ -6,6 +6,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import ThemeProvider from "@/theme/ThemeProvider";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import MainLayout from "@/components/layout/MainLayout";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -28,7 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.variable} antialiased`} suppressHydrationWarning={true}>
         <ThemeProvider>
-          {children}
+          <ErrorBoundary>
+            <MainLayout>{children}</MainLayout>
+          </ErrorBoundary>
         </ThemeProvider>
       </body>
     </html>

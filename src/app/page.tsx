@@ -1,6 +1,16 @@
 'use client';
 
-import { Container, Typography, Button, Box, Stack, Card, CardContent, IconButton, Chip, Alert } from '@mui/material';
+import { useTheme } from '@/theme/ThemeProvider';
+import AppContainer from '@/components/ui/Container';
+import AppBox from '@/components/ui/Box';
+import AppStack from '@/components/ui/Stack';
+import AppCard from '@/components/ui/Card';
+import AppCardContent from '@/components/ui/CardContent';
+import AppIconButton from '@/components/ui/IconButton';
+import AppChip from '@/components/ui/Chip';
+import AppButton from '@/components/ui/Button';
+import AppTypography from '@/components/ui/Typography';
+import AppAlert from '@/components/ui/Alert';
 import { 
   Home as HomeIcon, 
   Code as CodeIcon, 
@@ -8,19 +18,18 @@ import {
   DarkMode as DarkModeIcon,
   Palette as PaletteIcon
 } from '@mui/icons-material';
-import { useTheme } from '@/theme/ThemeProvider';
 
 export default function Home() {
   const { mode, toggleTheme } = useTheme();
 
   return (
-    <Container maxWidth="md" sx={{ py: 8 }}>
-      <Box sx={{ textAlign: 'center', mb: 6 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-          <Typography variant="h2" component="h1" sx={{ fontWeight: 300, flex: 1 }}>
+    <AppContainer maxWidth="md" sx={{ py: 8 }}>
+      <AppBox sx={{ textAlign: 'center', mb: 6 }}>
+        <AppBox sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+          <AppTypography variant="h2" component="h1" sx={{ fontWeight: 300, flex: 1 }}>
             FluentFox
-          </Typography>
-          <IconButton 
+          </AppTypography>
+          <AppIconButton 
             onClick={toggleTheme} 
             size="large" 
             color="primary"
@@ -34,114 +43,114 @@ export default function Home() {
             }}
           >
             {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
-          </IconButton>
-        </Box>
+          </AppIconButton>
+        </AppBox>
         
-        <Stack direction="row" spacing={1} justifyContent="center" sx={{ mb: 2 }}>
-          <Chip 
+        <AppStack direction="row" spacing={1} justifyContent="center" sx={{ mb: 2 }}>
+          <AppChip 
             icon={<PaletteIcon />} 
             label={`${mode} mode`} 
             color="primary" 
             variant="outlined" 
           />
-          <Chip label="Next.js 15" color="secondary" />
-          <Chip label="Material-UI v7" color="success" />
-          <Chip label="TypeScript" color="info" />
-        </Stack>
+          <AppChip label="Next.js 15" color="secondary" />
+          <AppChip label="Material-UI v7" color="success" />
+          <AppChip label="TypeScript" color="info" />
+        </AppStack>
         
-        <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 400, color: 'text.secondary' }}>
+        <AppTypography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 400, color: 'text.secondary' }}>
           Next.js + Material-UI + Roboto Font
-        </Typography>
-        <Typography variant="body1" sx={{ mt: 2, mb: 4 }}>
+        </AppTypography>
+        <AppTypography variant="body1" sx={{ mt: 2, mb: 4 }}>
           This is a test page to verify that Material-UI components and Roboto font are working correctly.
-          The text you're reading should be displayed in the Roboto font family.
-        </Typography>
+          The text you&apos;re reading should be displayed in the Roboto font family.
+        </AppTypography>
         
-        <Alert severity="success" sx={{ mb: 4 }}>
+        <AppAlert severity="success" sx={{ mb: 4 }}>
           ✨ Theme system is working! Click the theme toggle button to switch between light and dark modes.
-        </Alert>
-      </Box>
+        </AppAlert>
+      </AppBox>
       
-      <Stack spacing={4} sx={{ mb: 6 }}>
-        <Card elevation={2}>
-          <CardContent>
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'primary.main' }}>
+      <AppStack spacing={4} sx={{ mb: 6 }}>
+        <AppCard elevation={2}>
+          <AppCardContent>
+            <AppTypography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'primary.main' }}>
               🎨 Theme Colors
-            </Typography>
-            <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
-              <Chip label="Primary" color="primary" />
-              <Chip label="Secondary" color="secondary" />
-              <Chip label="Success" color="success" />
-              <Chip label="Error" color="error" />
-              <Chip label="Warning" color="warning" />
-              <Chip label="Info" color="info" />
-            </Stack>
-          </CardContent>
-        </Card>
+            </AppTypography>
+            <AppStack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
+              <AppChip label="Primary" color="primary" />
+              <AppChip label="Secondary" color="secondary" />
+              <AppChip label="Success" color="success" />
+              <AppChip label="Error" color="error" />
+              <AppChip label="Warning" color="warning" />
+              <AppChip label="Info" color="info" />
+            </AppStack>
+          </AppCardContent>
+        </AppCard>
         
-        <Card elevation={2}>
-          <CardContent>
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'secondary.main' }}>
+        <AppCard elevation={2}>
+          <AppCardContent>
+            <AppTypography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'secondary.main' }}>
               📝 Typography Examples
-            </Typography>
-            <Stack spacing={2}>
-              <Typography variant="h1">Heading 1 - Roboto Light</Typography>
-              <Typography variant="h2">Heading 2 - Roboto Light</Typography>
-              <Typography variant="h3">Heading 3 - Roboto Regular</Typography>
-              <Typography variant="h4">Heading 4 - Roboto Regular</Typography>
-              <Typography variant="h5">Heading 5 - Roboto Regular</Typography>
-              <Typography variant="h6">Heading 6 - Roboto Medium</Typography>
-              <Typography variant="subtitle1">Subtitle 1 - Roboto Regular</Typography>
-              <Typography variant="subtitle2">Subtitle 2 - Roboto Medium</Typography>
-              <Typography variant="body1">Body 1 - Roboto Regular</Typography>
-              <Typography variant="body2">Body 2 - Roboto Regular</Typography>
-              <Typography variant="caption">Caption - Roboto Regular</Typography>
-              <Typography variant="overline">Overline - Roboto Regular</Typography>
-            </Stack>
-          </CardContent>
-        </Card>
+            </AppTypography>
+            <AppStack spacing={2}>
+              <AppTypography variant="h1">Heading 1 - Roboto Light</AppTypography>
+              <AppTypography variant="h2">Heading 2 - Roboto Light</AppTypography>
+              <AppTypography variant="h3">Heading 3 - Roboto Regular</AppTypography>
+              <AppTypography variant="h4">Heading 4 - Roboto Regular</AppTypography>
+              <AppTypography variant="h5">Heading 5 - Roboto Regular</AppTypography>
+              <AppTypography variant="h6">Heading 6 - Roboto Medium</AppTypography>
+              <AppTypography variant="subtitle1">Subtitle 1 - Roboto Regular</AppTypography>
+              <AppTypography variant="subtitle2">Subtitle 2 - Roboto Medium</AppTypography>
+              <AppTypography variant="body1">Body 1 - Roboto Regular</AppTypography>
+              <AppTypography variant="body2">Body 2 - Roboto Regular</AppTypography>
+              <AppTypography variant="caption">Caption - Roboto Regular</AppTypography>
+              <AppTypography variant="overline">Overline - Roboto Regular</AppTypography>
+            </AppStack>
+          </AppCardContent>
+        </AppCard>
         
-        <Card elevation={2}>
-          <CardContent>
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'success.main' }}>
+        <AppCard elevation={2}>
+          <AppCardContent>
+            <AppTypography variant="h4" gutterBottom sx={{ fontWeight: 500, color: 'success.main' }}>
               ⚖️ Font Weight Examples
-            </Typography>
-            <Stack spacing={2}>
-              <Typography variant="body1" sx={{ fontWeight: 300 }}>
+            </AppTypography>
+            <AppStack spacing={2}>
+              <AppTypography variant="body1" sx={{ fontWeight: 300 }}>
                 Roboto Light (300) - The quick brown fox jumps over the lazy dog
-              </Typography>
-              <Typography variant="body1" sx={{ fontWeight: 400 }}>
+              </AppTypography>
+              <AppTypography variant="body1" sx={{ fontWeight: 400 }}>
                 Roboto Regular (400) - The quick brown fox jumps over the lazy dog
-              </Typography>
-              <Typography variant="body1" sx={{ fontWeight: 500 }}>
+              </AppTypography>
+              <AppTypography variant="body1" sx={{ fontWeight: 500 }}>
                 Roboto Medium (500) - The quick brown fox jumps over the lazy dog
-              </Typography>
-              <Typography variant="body1" sx={{ fontWeight: 700 }}>
+              </AppTypography>
+              <AppTypography variant="body1" sx={{ fontWeight: 700 }}>
                 Roboto Bold (700) - The quick brown fox jumps over the lazy dog
-              </Typography>
-            </Stack>
-          </CardContent>
-        </Card>
-      </Stack>
+              </AppTypography>
+            </AppStack>
+          </AppCardContent>
+        </AppCard>
+      </AppStack>
 
-      <Box sx={{ textAlign: 'center' }}>
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-          <Button 
+      <AppBox sx={{ textAlign: 'center' }}>
+        <AppStack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+          <AppButton 
             variant="contained" 
             startIcon={<HomeIcon />}
             size="large"
           >
             Material-UI Button
-          </Button>
-          <Button 
+          </AppButton>
+          <AppButton 
             variant="outlined" 
             startIcon={<CodeIcon />}
             size="large"
           >
             Get Started
-          </Button>
-        </Stack>
-      </Box>
-    </Container>
+          </AppButton>
+        </AppStack>
+      </AppBox>
+    </AppContainer>
   );
 }
